@@ -5,7 +5,7 @@ if (isset($_GET['u'])) {
     {
         $sql = "SELECT * FROM links WHERE short_link = :url";
         $result = Database::query($sql, ['url' => $url], true);
-        return $result[0][link];
+        return $result[0]['link'];
     }
 
     try {
@@ -32,12 +32,12 @@ if (isset($_GET['u'])) {
     <h1 class="display-5 mb-3 fw-bold">Сокращатель ссылок</h1>
     <div class="col-lg-6 mx-auto">
         <div class="justify-content-sm-center">
-            <form class="p-4 p-md-5 border rounded-3 bg-light" action="#">
+            <form class="p-4 p-md-5 border rounded-3 bg-light">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="url" name="url" placeholder="domain.com" required>
-                    <label for="url">Адрес: </label>
+                    <label for="url">Адрес </label>
                 </div>
-                <button class="w-100 btn btn-lg btn-primary" type="button">Создать ссылку</button>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Создать ссылку</button>
                 <hr class="my-4">
                 <a id="link" href="#"></a>
             </form>
